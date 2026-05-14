@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeMind | CS 통합 학습 플랫폼</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260514-13">
+</head>
+<body>
+  <nav>
+    <div class="nav-logo" onclick="showPage('home')">
+      <div class="nav-logo-dot"></div>
+      CodeMind
+    </div>
+    <div class="nav-links">
+      <div class="nav-link" id="nav-ai" onclick="showPage('ai')">
+        <span class="nav-link-icon" aria-hidden="true">📚</span>
+        PDF 요약 및 오답노트
+      </div>
+      <div class="nav-link" id="nav-code" onclick="showPage('code')">
+        <span class="nav-link-icon" aria-hidden="true">💻</span>
+        코딩 연습
+      </div>
+      <div class="nav-link" id="nav-board" onclick="showPage('board')">
+        <span class="nav-link-icon" aria-hidden="true">💬</span>
+        커뮤니티
+      </div>
+    </div>
+    <div class="nav-right">
+      <button class="btn-login" onclick="openLogin()">로그인</button>
+    </div>
+  </nav>
+
+  <div id="page-home" class="page active">
+    <section class="hero">
+      <div class="hero-text">
+        <div class="hero-badge">컴퓨터공학과를 위한 학습 플랫폼</div>
+        <h1 class="hero-title">
+          CS 전공 공부를<br>
+          <span class="line2">읽고, 풀고, 복습하는 흐름</span>
+        </h1>
+        <p class="hero-desc">
+          강의 자료 요약, AI 예상문제, 오답 복습, 코딩 연습, 커뮤니티를 한 곳에 묶었습니다.
+          컴퓨터공학과 학생들이 전공 개념을 시험과 실습까지 연결해 공부할 수 있게 돕습니다.
+        </p>
+        <div class="hero-mini-flow">
+          <span>자료구조</span>
+          <span>알고리즘</span>
+          <span>운영체제</span>
+          <span>네트워크</span>
+        </div>
+        <div class="hero-cta">
+          <button class="btn-primary" onclick="showPage('ai')">학습 시작하기</button>
+          <button class="btn-outline" onclick="showPage('code')">코딩 연습 보기</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="learning-board">
+          <div class="board-topline">
+            <span>CS 학습 모듈</span>
+            <strong>CS Lab</strong>
+          </div>
+          <div class="platform-flow">
+            <span><b>📄</b><small>자료</small></span>
+            <span><b>🧠</b><small>문제</small></span>
+            <span><b>🔁</b><small>복습</small></span>
+            <span><b>💻</b><small>코드</small></span>
+          </div>
+          <div class="learning-stack">
+            <div class="learning-row source">
+              <strong>전공 자료 요약</strong>
+              <span>PDF · 텍스트</span>
+            </div>
+            <div class="learning-row quiz">
+              <strong>과목별 예상문제</strong>
+              <span>DS · OS · Network</span>
+            </div>
+            <div class="learning-row wrong">
+              <strong>오답 복습 루프</strong>
+              <span>빈칸 · 객관식 · 서술형</span>
+            </div>
+            <div class="learning-row code">
+              <strong>코딩 연습과 커뮤니티</strong>
+              <span>알고리즘 · 자료 공유</span>
+            </div>
+          </div>
+          <div class="concept-cloud">
+            <span>자료구조</span>
+            <span>알고리즘</span>
+            <span>운영체제</span>
+            <span>네트워크</span>
+            <span>DB</span>
+            <span>코딩</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="features-grid">
+        <div class="feature-card ai" onclick="showPage('ai')">
+        <div class="feature-icon ai" aria-hidden="true">📄</div>
+        <div class="feature-name">PDF 요약</div>
+        <div class="feature-desc">PDF나 텍스트 자료를 넣으면 요약, 키워드, 빈칸 복습 문제를 생성합니다.</div>
+      </div>
+      <div class="feature-card note" onclick="showPage('ai')">
+        <div class="feature-icon note" aria-hidden="true">📝</div>
+        <div class="feature-name">오답노트</div>
+        <div class="feature-desc">AI 예상문제를 틀리면 사용자별 오답노트에 저장하고 다시 복습합니다.</div>
+      </div>
+        <div class="feature-card code" onclick="showPage('code')">
+        <div class="feature-icon code" aria-hidden="true">💻</div>
+        <div class="feature-name">코딩 연습</div>
+        <div class="feature-desc">자료구조와 알고리즘 문제를 풀며 구현 감각을 함께 점검합니다.</div>
+      </div>
+      <div class="feature-card board" onclick="showPage('board')">
+        <div class="feature-icon board" aria-hidden="true">💬</div>
+        <div class="feature-name">커뮤니티</div>
+        <div class="feature-desc">시험 복기, 질문 답변, 진로 정보를 함께 공유하는 컴공 전공 게시판입니다.</div>
+      </div>
+    </div>
+
+    <section class="home-guide">
+      <div class="home-guide-head">
+        <span>What you can do</span>
+        <h2>처음 와도 바로 이해되는 컴공 학습 흐름</h2>
+        <p>자료를 정리하고, 문제를 풀고, 틀린 지점을 다시 복습하는 전공 학습 공간입니다.</p>
+      </div>
+      <div class="home-guide-grid">
+        <div class="home-guide-item">
+          <strong>📄 자료 요약</strong>
+          <p>강의 PDF와 텍스트에서 핵심 문장과 키워드를 뽑아 정리합니다.</p>
+        </div>
+        <div class="home-guide-item">
+          <strong>🧠 AI 문제 생성</strong>
+          <p>과목과 난이도에 맞춰 객관식, 서술형, 빈칸 문제를 만듭니다.</p>
+        </div>
+        <div class="home-guide-item">
+          <strong>🔁 오답 복습</strong>
+          <p>틀린 문제를 유형 그대로 저장하고 다시 풀 수 있게 관리합니다.</p>
+        </div>
+        <div class="home-guide-item">
+          <strong>💻 코드와 커뮤니티</strong>
+          <p>알고리즘 풀이와 전공 자료 공유까지 한 흐름으로 이어집니다.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="page-ai" class="page">
+    <div class="page-inner study-page">
+      <div class="study-hero-panel">
+        <div class="study-hero-copy">
+          <div class="study-overline">CodeMind Study Lab</div>
+          <h1>PDF 요약 및 오답노트</h1>
+          <p>자료를 넣고, 핵심을 뽑고, 문제를 풀고, 틀린 개념을 다시 붙잡는 학습 작업실입니다.</p>
+          <div class="study-metrics">
+            <span><strong>01</strong> 자료 입력</span>
+            <span><strong>02</strong> AI 요약</span>
+            <span><strong>03</strong> 예상문제</span>
+            <span><strong>04</strong> 오답 디버깅</span>
+          </div>
+        </div>
+        <div class="study-hero-actions">
+          <button class="btn-primary" onclick="generatePdfSummary()">요약 바로 생성</button>
+          <button class="btn-outline" onclick="window.generateCustomPDF()">시험지 출력</button>
+        </div>
+      </div>
+
+      <div class="study-flow-strip">
+        <div class="flow-step active">
+          <span class="flow-num">01</span>
+          <div><strong>Source</strong><small>PDF 또는 텍스트</small></div>
+        </div>
+        <div class="flow-step">
+          <span class="flow-num">02</span>
+          <div><strong>Summary</strong><small>요약과 키워드</small></div>
+        </div>
+        <div class="flow-step">
+          <span class="flow-num">03</span>
+          <div><strong>Quiz</strong><small>AI 예상문제</small></div>
+        </div>
+        <div class="flow-step">
+          <span class="flow-num">04</span>
+          <div><strong>Review</strong><small>오답 복습</small></div>
+        </div>
+      </div>
+
+      <div class="pdf-prototype study-layout">
+        <section class="study-panel">
+          <div class="pdf-prototype-title">학습 자료</div>
+          <p class="pdf-prototype-desc">PDF 또는 텍스트를 넣고 요약을 만든 뒤, 그 내용을 AI 예상문제와 오답노트 문맥으로 사용합니다.</p>
+          <div class="pdf-step-badge">요약 -> 문제 -> 오답</div>
+
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin:14px 0;">
+            <button class="btn-secondary" onclick="loadSamplePdfText('os')">운영체제 예시</button>
+            <button class="btn-secondary" onclick="loadSamplePdfText('network')">네트워크 예시</button>
+            <label class="btn-secondary" style="cursor:pointer;">
+              파일 불러오기
+              <input type="file" accept=".txt,.pdf" onchange="loadPdfTextFile(event)" style="display:none;">
+            </label>
+          </div>
+
+          <textarea id="pdfSourceText" class="pdf-textarea" placeholder="PDF에서 추출한 텍스트나 수업 자료를 붙여 넣으세요."></textarea>
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;">
+            <button class="btn-primary" onclick="generatePdfSummary()">요약 생성</button>
+            <button class="btn-secondary" onclick="generateBlankQuiz()">빈칸 복습 만들기</button>
+            <button class="btn-secondary" onclick="generateReverseQuestion()">AI 역질문 만들기</button>
+          </div>
+        </section>
+
+        <section class="study-panel">
+          <div class="pdf-card-title">구조화 요약</div>
+          <div id="pdfSummaryOutput" class="pdf-output">아직 요약이 생성되지 않았습니다.</div>
+
+          <div class="pdf-card-title" style="margin-top:16px;">핵심 키워드</div>
+          <div id="pdfKeywordOutput" class="pdf-output">핵심 키워드가 여기에 표시됩니다.</div>
+        </section>
+      </div>
+
+      <div class="reverse-panel">
+        <section class="study-panel">
+          <div class="pdf-card-title">빈칸 복습</div>
+          <div id="blankQuizArea" class="pdf-output">빈칸 문제를 생성하면 이곳에 표시됩니다.</div>
+        </section>
+
+        <section class="study-panel">
+          <div class="pdf-card-title">AI 역질문과 설명 평가</div>
+          <div id="reverseQuestionArea" class="reverse-box">역질문이 아직 생성되지 않았습니다.</div>
+          <textarea id="reverseAnswerInput" class="pdf-textarea compact" placeholder="AI의 질문에 대해 직접 설명해보세요."></textarea>
+          <button class="btn-primary" onclick="evaluateReverseAnswer()">설명 평가 받기</button>
+          <div id="reverseEvalArea" class="reverse-box" style="display:none;"></div>
+        </section>
+      </div>
+
+      <section class="study-panel memo-panel">
+        <div class="memo-head">
+          <div>
+            <div class="pdf-card-title">학습 메모</div>
+            <p>요약을 보면서 헷갈린 부분, 교수님 강조점, 다시 볼 키워드를 짧게 남겨두세요.</p>
+          </div>
+          <button class="btn-primary" onclick="saveStudyMemo()">메모 저장</button>
+        </div>
+        <textarea id="studyMemoInput" class="pdf-textarea compact" placeholder="예: TCP는 신뢰성을 위해 순서 보장과 재전송을 제공한다. UDP와 비교해서 다시 보기."></textarea>
+        <div id="studyMemoList" class="memo-list">저장된 메모가 아직 없습니다.</div>
+      </section>
+
+      <section class="note-zone study-panel">
+        <div class="note-toolbar">
+          <div>
+            <h2>AI 예상문제 및 오답노트</h2>
+            <p>현재 PDF 요약과 저장된 오답을 바탕으로 새 문제를 만들고, 틀린 문제는 아래 목록에 자동 저장됩니다.</p>
+          </div>
+          <button class="btn-primary" onclick="window.generateCustomPDF()">나만의 시험지 출력</button>
+        </div>
+
+        <div class="note-filters">
+          <button class="filter-btn active" onclick="filterNotes('all', this)">전체</button>
+          <button class="filter-btn" onclick="filterNotes('자료구조', this)">자료구조</button>
+          <button class="filter-btn" onclick="filterNotes('알고리즘', this)">알고리즘</button>
+          <button class="filter-btn" onclick="filterNotes('운영체제', this)">운영체제</button>
+          <button class="filter-btn" onclick="filterNotes('네트워크', this)">네트워크</button>
+          <button class="filter-btn" onclick="filterNotes('데이터베이스', this)">데이터베이스</button>
+        </div>
+
+        <div id="notesGrid" class="notes-grid"></div>
+      </section>
+    </div>
+  </div>
+
+  <div id="page-code" class="page">
+    <div class="page-inner">
+      <div class="page-header">
+        <h1>코딩 연습</h1>
+        <p>자료구조와 알고리즘 문제를 풀면서 구현 감각을 점검해보세요.</p>
+      </div>
+
+      <div class="coding-layout">
+        <section class="problem-panel">
+          <div class="diff-tabs">
+            <button class="diff-chip easy active" onclick="setDiff('easy', this)">쉬움</button>
+            <button class="diff-chip mid" onclick="setDiff('mid', this)">보통</button>
+            <button class="diff-chip hard" onclick="setDiff('hard', this)">어려움</button>
+          </div>
+          <div class="problem-tabs">
+            <button class="ptab active" onclick="switchProbTab('list', this)">문제 목록</button>
+            <button class="ptab" onclick="switchProbTab('desc', this)">문제 설명</button>
+          </div>
+          <div id="ptab-list" class="problem-content">
+            <div id="problemList"></div>
+          </div>
+          <div id="ptab-desc" class="problem-content" style="display:none;">
+            <div class="problem-title-row">
+              <h2 id="pTitle" class="problem-title"></h2>
+              <span id="pDiff" class="p-badge easy"></span>
+            </div>
+            <p id="pDesc" class="problem-desc"></p>
+            <div class="example-box">
+              <div class="example-label">입력 예시</div>
+              <div id="pInput" class="example-text"></div>
+            </div>
+            <div class="example-box">
+              <div class="example-label">출력 예시</div>
+              <div id="pOutput" class="example-text"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="editor-panel">
+          <div class="editor-toolbar">
+            <select class="lang-select">
+              <option>Python</option>
+            </select>
+            <div style="display:flex; gap:8px;">
+              <button class="btn-run" onclick="runCode()">실행</button>
+              <button class="btn-submit" onclick="submitCode()">제출</button>
+            </div>
+          </div>
+          <textarea id="codeEditor" class="code-editor"></textarea>
+          <div id="editorOutput" class="editor-output"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div id="page-board" class="page">
+    <div class="page-inner">
+      <div class="board-header">
+        <div>
+          <h1>커뮤니티</h1>
+          <p>시험 복기, 질문, 진로 정보를 함께 정리하는 공간입니다.</p>
+        </div>
+        <button class="btn-primary" onclick="openBoardModal()">글쓰기</button>
+      </div>
+      <div class="board-tabs">
+        <button class="btab active" onclick="filterBoard('all', this)">전체</button>
+        <button class="btab" onclick="filterBoard('exam', this)">자료공유</button>
+        <button class="btab" onclick="filterBoard('qna', this)">질문답변</button>
+        <button class="btab" onclick="filterBoard('career', this)">진로취업</button>
+      </div>
+      <div id="postList" class="post-list"></div>
+    </div>
+  </div>
+
+  <div id="loginModal" class="modal-overlay">
+    <div class="login-modal">
+      <div class="login-logo">CodeMind</div>
+      <div class="login-subtitle">이메일을 입력하면 사용자별 오답노트와 메모가 분리됩니다.</div>
+      <label class="form-label" for="loginEmail">이메일</label>
+      <input id="loginEmail" class="input-field" type="email" placeholder="student@codemind.local">
+      <button class="btn-login-submit" onclick="doLogin()">로그인</button>
+      <div class="login-footer">로그인하지 않으면 guest 계정으로 저장됩니다.</div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">
+    <span id="toastIcon">OK</span>
+    <span id="toastMsg">완료되었습니다.</span>
+  </div>
+
+  <script src="js/core.js?v=20260514-13"></script>
+  <script src="js/ai-chat.js?v=20260514-13"></script>
+  <script src="js/pdf-study.js?v=20260514-13"></script>
+  <script src="js/notes.js?v=20260514-13"></script>
+  <script src="js/coding.js?v=20260514-13"></script>
+  <script src="js/board.js?v=20260514-13"></script>
+  <script src="js/note-quiz.js?v=20260514-13"></script>
+  <script src="js/custom-exam.js?v=20260514-13"></script>
+  <script src="js/debug-review.js?v=20260514-13"></script>
+  <script src="js/main.js?v=20260514-13"></script>
+</body>
+</html>
